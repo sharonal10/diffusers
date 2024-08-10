@@ -32,3 +32,5 @@ for val in "${vals[@]}"; do
     python -m tu.sbatch.sbatch_sweep --time 96:00:00 \
     --proj_dir /viscam/projects/image2Blender/diffusers/examples/textual_inversion --conda_env diffusers \
     --job "08-10-infer-normal-chair" --command 'accelerate launch textual_inversion.py   --pretrained_model_name_or_path="CompVis/stable-diffusion-v1-4"   --train_data_dir="images/cat-one"   --learnable_property="object"   --placeholder_token="<chair-toy>"   --initializer_token="cat"   --resolution=512   --train_batch_size=1   --gradient_accumulation_steps=4   --max_train_steps=${val}   --learning_rate=5.0e-05   --scale_lr   --lr_scheduler="constant"   --lr_warmup_steps=0   --push_to_hub   --output_dir="results-cat-one-${val}" && python inference.py --prompt "a photo of a <chair-toy>" --model_id "results-cat-one-${val}" --output_image_name "output_imgs/cat-one-${val}.png"'  $GPU_INFO "$EXTRA_GPU_INFO"
+
+done
