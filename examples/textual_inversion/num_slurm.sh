@@ -19,7 +19,7 @@ num=1
 # --job "08-10-infer-normal-cat" --command 'python inference.py --prompt "a photo of a dog" --model_id "textual_inversion_cat" --output_image_name "output_imgs/dog2.png"'  $GPU_INFO "$EXTRA_GPU_INFO"
 
 # note: this is 10x lower lr, original is 5.0e-04
-vals=("500" "1000" "2000")
+vals=(500 1000 200)
 for val in "${vals[@]}"; do
     python -m tu.sbatch.sbatch_sweep --time 96:00:00 \
     --proj_dir /viscam/projects/image2Blender/diffusers/examples/textual_inversion --conda_env diffusers \
