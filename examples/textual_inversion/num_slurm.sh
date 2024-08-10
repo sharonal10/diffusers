@@ -12,11 +12,11 @@ num=1
 
 python -m tu.sbatch.sbatch_sweep --time 96:00:00 \
 --proj_dir /viscam/projects/image2Blender/diffusers/examples/textual_inversion --conda_env diffusers \
---job "08-10-infer-normal-chair" --command "python inference.py --prompt "a photo of a dog" --model_id "results-black_chair_rendered" --output_image_name "output_imgs/dog.png""  $GPU_INFO "$EXTRA_GPU_INFO"
+--job "08-10-infer-normal-chair" --command 'python inference.py --prompt "a photo of a dog" --model_id "results-black_chair_rendered" --output_image_name "output_imgs/dog.png"'  $GPU_INFO "$EXTRA_GPU_INFO"
 
 python -m tu.sbatch.sbatch_sweep --time 96:00:00 \
 --proj_dir /viscam/projects/image2Blender/diffusers/examples/textual_inversion --conda_env diffusers \
---job "08-10-infer-normal-cat" --command "python inference.py --prompt "a photo of a dog" --model_id "textual_inversion_cat" --output_image_name "output_imgs/dog2.png""  $GPU_INFO "$EXTRA_GPU_INFO"
+--job "08-10-infer-normal-cat" --command 'python inference.py --prompt "a photo of a dog" --model_id "textual_inversion_cat" --output_image_name "output_imgs/dog2.png"'  $GPU_INFO "$EXTRA_GPU_INFO"
 
 
 # vals=("0" "0.1" "0.02" "0.00001" "0.0000001")
