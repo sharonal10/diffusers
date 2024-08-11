@@ -35,6 +35,8 @@ num=1
 
 # done
 
+accelerate launch textual_inversion_phase_2.py   --pretrained_model_name_or_path='results-black_chair_rendered-1000-LR5e-04'  --train_data_dir='images/black_chair_real' --save_as_full_pipeline  --learnable_property='object'   --placeholder_token='<chair-real>'   --initializer_token='dog' --existing_token='<chair-toy>'  --resolution=512   --train_batch_size=1   --gradient_accumulation_steps=4   --max_train_steps=1   --learning_rate=5.0e-04   --scale_lr   --lr_scheduler='constant'   --lr_warmup_steps=0  --resume_from_checkpoint='latest' --output_dir='results-black_chair_real-test'
+
 vals=(500 1000 2000 3000)
 for val in "${vals[@]}"; do
     python -m tu.sbatch.sbatch_sweep --time 96:00:00 \
