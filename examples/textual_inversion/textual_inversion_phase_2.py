@@ -563,7 +563,6 @@ class TextualInversionDataset(Dataset):
 
         placeholder_string = self.placeholder_token
         text = random.choice(self.templates).format(placeholder_string)
-        print(text)
 
         example["input_ids"] = self.tokenizer(
             text,
@@ -572,8 +571,6 @@ class TextualInversionDataset(Dataset):
             max_length=self.tokenizer.model_max_length,
             return_tensors="pt",
         ).input_ids[0]
-
-        print(example["input_ids"])
 
         # default to score-sde preprocessing
         img = np.array(image).astype(np.uint8)
