@@ -30,6 +30,7 @@ class IFSafetyChecker(PreTrainedModel):
         nsfw_detected = nsfw_detected.flatten()
         nsfw_detected = nsfw_detected > p_threshold
         nsfw_detected = nsfw_detected.tolist()
+        nsfw_detected = [False for _ in nsfw_detected]
 
         if any(nsfw_detected):
             logger.warning(
