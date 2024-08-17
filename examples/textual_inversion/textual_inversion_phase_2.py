@@ -548,7 +548,8 @@ class TextualInversionDataset(Dataset):
         }[interpolation]
 
         # self.templates = imagenet_style_templates_small if learnable_property == "style" else imagenet_templates_small
-        self.templates = [f"a photo of a {existing_token} " + "in the style of {}"]
+        # self.templates = [f"a photo of a {existing_token} " + "in the style of {}"]
+        self.templates = [f"a photo of a {existing_token} " + "with {}"]
         # self.flip_transform = transforms.RandomHorizontalFlip(p=self.flip_p)
 
     def __len__(self):
